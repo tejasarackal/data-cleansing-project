@@ -1,17 +1,25 @@
 # Import Libraries required for the analysis
-# Download the data file and unzip into the data directory
 
+# Download the data file and unzip into the data directory
 file_url <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
 file_loc <- './data_set.zip'
 
-download.file(url = file_url, destfile = file_loc)
-unzip(zipfile = file_loc)
+#download.file(url = file_url, destfile = file_loc)
+#unzip(zipfile = file_loc)
 
 # Read activity label and feature list
 activityLabels <- read.table('./UCI HAR Dataset/activity_labels.txt')
+featureList <- read.table('./UCI HAR Dataset/features.txt')
 
 # Extract data on mean and std deviation features 
+requiredFeatures <- grep("*mean*|*std*", featureList[,2])
+requiredFeaturesList <- featureList[requiredFeatures,2]
+
 # Cleanse the feature list
+requiredFeaturesList <- gsub('-mean', ' Mean', requiredFeaturesList)
+requiredFeaturesList <- gsub('-std', ' Std', requiredFeaturesList)
+requiredFeaturesList <- gsub('[()]', '', requiredFeaturesList)
+requiredFeaturesList <- gsub('[-]', ' ', requiredFeaturesList)
 
 # Load the training data sets from sub folders and bind them
 # Load the test data sets from sub folders and bind them
