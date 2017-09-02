@@ -1,11 +1,12 @@
 # Import Libraries required for the analysis
+library(dplyr)
 
 # Download the data file and unzip into the data directory
 file_url <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
 file_loc <- './data_set.zip'
 
-#download.file(url = file_url, destfile = file_loc)
-#unzip(zipfile = file_loc)
+download.file(url = file_url, destfile = file_loc)
+unzip(zipfile = file_loc)
 
 # Read activity label and feature list
 activityLabels <- read.table('./UCI HAR Dataset/activity_labels.txt')
@@ -42,6 +43,10 @@ mergedSet <- rbind(train, test)
 colnames(mergedSet) <- c("subject", "activity", requiredFeaturesNameList)
 mergedSet$activity <- factor(mergedSet$activity, activityLabels[,1], activityLabels[,2])
 
-# Create tidy data set grouping activity and subject
+# Create data set grouping activity and subject
+groupData <- group_by(mergedSet, activity, subject)
 
 # Find the average for each group and bind it to tidy dataset
+tidyData <- summarise_all(groupData, funs(mean(.,na.rm = TRUE)))
+
+write.table(tidyData, file = './tidydata.txt', row.names = FALSE, quote = FALSE)
