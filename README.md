@@ -1,5 +1,5 @@
 # data-cleansing-project
-This repo is made for the submission of the data science course - getting and cleaning data course
+This repo is made for the submission of the data science course - getting and cleaning data 
 
 The R script called run_analysis.R does the following :
 
