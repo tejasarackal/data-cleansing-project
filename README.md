@@ -1,7 +1,7 @@
 # data-cleansing-project
 This repo is made for the submission of the data science course - getting and cleaning data course
 
-The R script called run_analysis.R does the following -
+The R script called run_analysis.R does the following :
 
 1. Downloads the data files and unzips them
 2. Merges the training and the test sets to create one data set.
