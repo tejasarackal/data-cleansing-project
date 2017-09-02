@@ -116,13 +116,13 @@ This codebook describes the variables, the data, and important transformations o
 * `fBodyBodyGyroJerkMagMeanFreq`
 
 ## Transformation
-* Imported dplyr library required for the analysis
-* Downloaded the data file and extracted the zip file into the data directory `UCI HAR Dataset`
-* Read the activity label and feature list into `activityLabels` and `featureList`
-* Extracted features that contained mean and std deviation features into `requiredFeatures`
-* Loaded the training data sets from train sub folders and bind them into `train`
-* Loaded the testing data sets from test sub folders and bind them into `test`
-* Merge the training and the test datasets into `mergedSet`
-* Added proper labels from `activityLabels` to the merged data with discriptive variable names
-* Grouped activity and subject in merged data into transition set `groupData`
-* Calculated the summary mean for respective measurements grouped by activity and subject, and assigned the result to `tidyData` 
+1. Imported dplyr library required for the analysis
+2. Downloaded the data file and extracted the zip file into the data directory `UCI HAR Dataset`
+3. Read the activity label and feature list into `activityLabels` and `featureList`
+4. Extracted features that contained mean and std deviation features into `requiredFeatures`
+5. Loaded the training data sets from train sub folders and bind them into `train`
+6. Loaded the testing data sets from test sub folders and bind them into `test`
+7. Merge the training and the test datasets into `mergedSet`
+8. Added proper labels from `activityLabels` to the merged data with discriptive variable names
+9. Grouped activity and subject in merged data into transition set `groupData`
+10. Calculated the summary mean for respective measurements grouped by activity and subject, and assigned the result to `tidyData` 
