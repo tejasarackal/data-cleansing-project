@@ -40,6 +40,8 @@ mergedSet <- rbind(train, test)
 
 # Add the labels to the merged data with discriptive variable names
 colnames(mergedSet) <- c("subject", "activity", requiredFeaturesNameList)
+mergedSet$activity <- factor(mergedSet$activity, activityLabels[,1], activityLabels[,2])
 
-# Create second tidy data set grouping activity and subject
+# Create tidy data set grouping activity and subject
+
 # Find the average for each group and bind it to tidy dataset
