@@ -1,7 +1,7 @@
-#Code Book
+# Code Book
 This codebook describes the variables, the data, and important transformations or work that is performed in run_analysis to clean up the data
 
-##Variables
+## Variables
 * `activityLabels` - Table consisting of activities and their respective labelled values provided in the `UCI HAR Dataset/activity_labels.txt`
 * `featureList` - List of all the features provided in the `UCI HAR Dataset/features.txt`
 * `requiredFeatures` - List of the features related to the mean or std deviation measurements 
@@ -17,8 +17,8 @@ This codebook describes the variables, the data, and important transformations o
 * `mergedSet` - Table representation of the entire data set along with associated activity and subject that were involved 
 * `tidyData` - data set with the average of each variable for each activity and each subject in the `mergedSet` (Done by grouping by activity, subject on `mergedSet` into transition set called `groupData`)
 
-##Data
-###Input
+## Data
+### Input
 * `UCI HAR Dataset/features.txt`: List of all features.
 * `UCI HAR Dataset/activity_labels.txt`: Links the class labels with their activity name.
 * `UCI HAR Dataset/train/X_train.txt`: Training set.
@@ -27,14 +27,14 @@ This codebook describes the variables, the data, and important transformations o
 * `UCI HAR Dataset/test/y_test.txt`: Test labels.
 * `UCI HAR Dataset/train/subject_train.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 * `UCI HAR Dataset/test/subject_test.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
-###Result
+### Result
 * `tidydata.txt` - The resulting tidy data set with the average of each variable for each activity and each subject. The following summarizes the resulting fields in the file:
 
-####Identifiers
+#### Identifiers
 * `subject` - The ID of the subject for which the measurements were taken
 * `activity` - The type of activity subject was performing for the corresponding measurement
 
-####Measurements
+#### Measurements
 * `tBodyAccMeanX`
 * `tBodyAccMeanY`
 * `tBodyAccMeanZ`
@@ -115,7 +115,7 @@ This codebook describes the variables, the data, and important transformations o
 * `fBodyBodyGyroJerkMagStd`
 * `fBodyBodyGyroJerkMagMeanFreq`
 
-##Transformation
+## Transformation
 * Imported dplyr library required for the analysis
 * Downloaded the data file and extracted the zip file into the data directory `UCI HAR Dataset`
 * Read the activity label and feature list into `activityLabels` and `featureList`
